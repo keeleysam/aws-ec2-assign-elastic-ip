@@ -2,9 +2,9 @@
 import argparse
 import sys
 try:
-    from ConfigParser import SafeConfigParser
+    from ConfigParser import SafeConfigParser as ConfigParser
 except ImportError:
-    from configparser import SafeConfigParser
+    from configparser import ConfigParser
 from argparse import RawTextHelpFormatter
 
 if sys.platform in ['win32', 'cygwin']:
@@ -12,7 +12,7 @@ if sys.platform in ['win32', 'cygwin']:
 else:
     import os.path as ospath
 
-SETTINGS = SafeConfigParser()
+SETTINGS = ConfigParser()
 SETTINGS.read('{0}/settings.conf'.format(
     ospath.dirname(ospath.realpath(__file__))))
 
