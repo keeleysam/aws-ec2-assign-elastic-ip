@@ -2,11 +2,11 @@
 import os
 from setuptools import setup
 try:
-    from ConfigParser import SafeConfigParser
+    from ConfigParser import SafeConfigParser as ConfigParser
 except ImportError:
     from configparser import ConfigParser
 
-settings = SafeConfigParser()
+settings = ConfigParser()
 settings.read(os.path.realpath('aws_ec2_assign_elastic_ip/settings.conf'))
 
 setup(
